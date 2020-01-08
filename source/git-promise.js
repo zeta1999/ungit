@@ -40,7 +40,7 @@ const gitExecutorProm = (args, retryCount) => {
       let stdout = '';
       let stderr = '';
       let env = JSON.parse(JSON.stringify(process.env));
-      env['LC_ALL'] = 'C'
+      env['LANGUAGE'] = 'en_US.UTF-8'
       const procOpts = { cwd: args.repoPath, maxBuffer: 1024 * 1024 * 100, detached: false, env: env }
       const gitProcess = child_process.spawn(gitBin, args.commands, procOpts);
       if (args.timeout) {
